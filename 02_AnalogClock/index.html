@@ -1,0 +1,39 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="./style.css">
+        
+    </head>
+    <body>
+        <div class="clock">
+            <div class="clockface">
+                <div class="hand hourhand"></div>
+                <div class="hand minutehand"></div>
+                <div class="hand secondshand"></div>
+            </div>
+        </div>   
+        <script>
+            var secondshand =document.querySelector('.secondshand');
+            var minuteshand = document.querySelector('.minutehand');
+            var hourshand = document.querySelector('.hourhand');
+            function setDate() {
+                var date = new Date();
+                var seconds = date.getSeconds();
+                //Convert seconds into degrees for seconds hand.
+                var secondsDegree = ((seconds/60)*360)+90;
+                secondshand.style.transform = `rotate(${secondsDegree}deg)`;
+
+                const mins = date.getMinutes();
+                const minsDegree = ((mins/60)*360)+ 90;
+                minuteshand.style.transform = `rotate(${minsDegree}deg)`;
+
+                const hours = date.getHours();
+                const hoursDegree = ((mins/24)*360)+ 90;
+                hourshand.style.transform = `rotate(${hoursDegree}deg)`;
+            }
+            setInterval(setDate, 1000);
+
+           
+
+        </script>     
+    </body>
+</html>
