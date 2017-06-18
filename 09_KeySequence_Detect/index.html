@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Key Detection</title>
+  <script type="text/javascript" src="http://www.cornify.com/js/cornify.js"></script>
+</head>
+<body>
+<script>
+    const secret = 'happy';
+    const keypressed = [];
+    window.addEventListener('keyup', function(e){
+        keypressed.push(e.key);
+
+        // The array would continue to grow, we want to compare the end of the array to our secret
+        keypressed.splice(-secret.length-1,(keypressed.length - secret.length));
+
+        let currentSeq = keypressed.join('');
+        if (secret ===currentSeq){
+            cornify_add();
+        }
+    })
+</script>
+</body>
+</html>
